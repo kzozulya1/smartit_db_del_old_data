@@ -1,0 +1,1 @@
+# smartit_db_del_old_data
