@@ -17,6 +17,7 @@ const (
 	`
 )
 
+// GenerateTestData generates SQL for create big data tables
 func GenerateTestData(tablename string, rowsCount int) string {
 	var (
 		strBuilder strings.Builder

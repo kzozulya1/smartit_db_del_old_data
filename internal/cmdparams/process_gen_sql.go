@@ -12,11 +12,10 @@ import (
 const (
 	genSQLDumpErrTemplate   = "failed to create dump for %s table"
 	sqlDumpFilenameTemplate = "../../scripts/sql/%s.sql"
-
-	numRowsToGenerate = 11000000 //11M
-	tablename1        = "tmp1"
-	tablename2        = "tmp2"
+	numRowsToGenerate       = 333000 //0.33М
 )
+
+var tablenames = []string{"tmp1", "tmp2"}
 
 // ProcessGenSQL generates SQL dump data
 func ProcessGenSQL() (retExit bool) {
@@ -26,12 +25,10 @@ func ProcessGenSQL() (retExit bool) {
 	flag.Parse()
 	if gen {
 
-		if err := genSQLDump(tablename1); err != nil {
-			logrus.Errorf(genSQLDumpErrTemplate, tablename1)
-		}
-
-		if err := genSQLDump(tablename2); err != nil {
-			logrus.Errorf(genSQLDumpErrTemplate, tablename1)
+		for _, tablename := range tablenames {
+			if err := genSQLDump(tablename); err != nil {
+				logrus.Errorf(genSQLDumpErrTemplate, tablename)
+			}
 		}
 
 		retExit = true
