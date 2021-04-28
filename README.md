@@ -10,18 +10,25 @@ go run ./cmd/smartit_remove_old_data_serviced -gen
 это меняется в константах в файле  internal\cmdparams\process_gen_sql.go
 
 2) создать 2 таблицы на основе дампа:
+
 psql -U yourusername -d yourdatabasename -f tmp1.sql
+
 psql -U yourusername -d yourdatabasename -f tmp2.sql
 
+
 4) настроить подключение к БД в переменной окружения DB_CONN
+
 по умолчанию значение  postgres://postgres:postgres@127.0.0.1:5432/mesh_group?sslmode=disable
 
 5) запустить сервис:
 go run ./cmd/smartit_remove_old_data_serviced
 
 6) выполнить 2 запроса из Postman
+
 [GET] localhost:2021/cleantable/tmp1
+
 [GET] localhost:2021/cleantable/tmp2
+
 
 Каждый запрос создаст легковесный thread (горутину), который в фоне будет удалять 
 пачками по N штук (конфиг переменная TABLE_RECORDS_DEL_BATCHSIZE) записи, которые старше 30 
