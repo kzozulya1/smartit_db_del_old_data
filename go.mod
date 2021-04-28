@@ -1,4 +1,4 @@
-module smartit_db_del_old_data
+module github.com/kzozulya1/smartit_db_del_old_data
 
 go 1.16
 

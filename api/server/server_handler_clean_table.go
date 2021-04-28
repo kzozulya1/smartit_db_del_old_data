@@ -3,10 +3,10 @@ package server
 import (
 	"fmt"
 	"net/http"
-	"smartit_db_del_old_data/internal/types"
 	"time"
 
-	"smartit_db_del_old_data/internal/sqlutils"
+	"github.com/kzozulya1/smartit_db_del_old_data/internal/sqlutils"
+	"github.com/kzozulya1/smartit_db_del_old_data/internal/types"
 
 	"github.com/labstack/echo"
 	"github.com/sirupsen/logrus"
@@ -35,6 +35,6 @@ func (s *Server) CleanTableHandler(c echo.Context) error {
 		}
 	}()
 
-	resp := types.NewJSONResponse(false, fmt.Sprintf("table %s scheduled", tableName))
+	resp := types.NewJSONResponse(false, fmt.Sprintf("table %s cleanup was scheduled. For more information please refer to app console logs.", tableName))
 	return c.JSON(http.StatusOK, resp)
 }

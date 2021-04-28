@@ -1,7 +1,7 @@
 package cmdparams
 
 import (
-	"smartit_db_del_old_data/internal/sqlutils"
+	"github.com/kzozulya1/smartit_db_del_old_data/internal/sqlutils"
 
 	"github.com/sirupsen/logrus"
 

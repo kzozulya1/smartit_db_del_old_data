@@ -3,11 +3,11 @@ package main
 import (
 	"os"
 	"os/signal"
-	"smartit_db_del_old_data/api/server"
+
+	"github.com/kzozulya1/smartit_db_del_old_data/api/server"
+	"github.com/kzozulya1/smartit_db_del_old_data/internal/cmdparams"
 
 	"github.com/sirupsen/logrus"
-
-	"smartit_db_del_old_data/internal/cmdparams"
 )
 
 func main() {

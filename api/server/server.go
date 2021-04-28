@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"time"
 
-	"smartit_db_del_old_data/config"
-	"smartit_db_del_old_data/internal/storage"
+	"github.com/kzozulya1/smartit_db_del_old_data/config"
+	"github.com/kzozulya1/smartit_db_del_old_data/internal/storage"
 
 	"github.com/go-pg/pg/v10"
 	"github.com/kelseyhightower/envconfig"
